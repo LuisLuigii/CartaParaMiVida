@@ -70,8 +70,8 @@
 
     /* SOBRE Y CARTA */
     .envelope {
-      width: 250px;
-      height: 180px;
+      width: 400px;   /* antes 250px */
+      height: 300px;  /* antes 180px */
       position: relative;
       cursor: pointer;
       perspective: 1000px;
@@ -92,19 +92,20 @@
     }
 
     .letter {
-      width: 90%;
-      height: 90%;
+      width: 95%;
+      height: 95%;
       background: #fff;
       position: absolute;
-      top: 5%;
-      left: -1%;
+      top: 2.5%;
+      left: 2.5%;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      padding: 15px;
-      text-align: center;
+      padding: 20px;
+      text-align: justify;
       opacity: 0;
       transition: opacity 1s ease;
       border-radius: 8px;
       z-index: 1;
+      overflow-y: auto; /* scroll si el texto es largo */
     }
 
     .envelope.open .flap {
@@ -126,18 +127,17 @@
     <div class="letter">
       <h2>Para el amor de mi vida ❤️</h2>
       <p>
-        Felices 5 meses mi vidaaa!!
-        A veces pienso como si te conociera desde hace mucho tiempo y apenas llevamos muy poco.
-        Ha habido de todo: confianza, respeto, momentos, risas compartidas, peleas, enojos, intimidad, crecimiento, admiración,
-        pero sobre todo amor y comunicación que es lo mas importante y quiero que siempre lo haya.
+        Felices 5 meses mi vidaaa!!  
+        A veces pienso como si te conociera desde hace mucho tiempo y apenas llevamos muy poco.  
+        Ha habido de todo: confianza, respeto, momentos, risas compartidas, peleas, enojos, intimidad, crecimiento, admiración,  
+        pero sobre todo amor y comunicación que es lo más importante y quiero que siempre lo haya.  
 
-        Ya se que esto no es mucho, pero lo hago con todo el amor y cariño que siento por ti.
-        Te amo muchisimo y quiero seguir eligiendote porque eres la mushasha con quien quiero compartir mi vida.
-        Me encantas.
+        Ya sé que esto no es mucho, pero lo hago con todo el amor y cariño que siento por ti.  
+        Te amo muchísimo y quiero seguir eligiéndote porque eres la mushasha con quien quiero compartir mi vida.  
+        Me encantas.  
 
-        PD: Creo que se te bugeo fornite, correleeee, RAPIDOOOOO!!!
-        Feliz mesesarioo jiji
-         💕
+        PD: Creo que se te bugeó Fortnite, correleeee, RAPIDOOOOO!!!  
+        Feliz mesesarioo jiji 💕  
       </p>
     </div>
   </div>
@@ -165,4 +165,3 @@
   </script>
 </body>
 </html>
-
