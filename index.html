@@ -1,1 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Carta para Ti ❤️</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    /* ANIMACIÓN DE CORAZONES */
+    .hearts {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: floatUp 6s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(45deg) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-800px) rotate(45deg) scale(0.5);
+        opacity: 0;
+      }
+    }
+
+    /* SOBRE Y CARTA */
+    .envelope {
+      width: 250px;
+      height: 180px;
+      position: relative;
+      cursor: pointer;
+      perspective: 1000px;
+      z-index: 1;
+    }
+
+    .flap {
+      width: 100%;
+      height: 100%;
+      background: #ff4d6d;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform-origin: top;
+      transition: transform 1s ease;
+      z-index: 2;
+      border-radius: 8px;
+    }
+
+    .letter {
+      width: 90%;
+      height: 90%;
+      background: #fff;
+      position: absolute;
+      top: 5%;
+      left: 5%;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      padding: 15px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 1s ease;
+      border-radius: 8px;
+      z-index: 1;
+    }
+
+    .envelope.open .flap {
+      transform: rotateX(-180deg);
+    }
+
+    .envelope.open .letter {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <!-- Corazones -->
+  <div class="hearts"></div>
+
+  <!-- Sobre y carta -->
+  <div class="envelope" onclick="abrirCarta()">
+    <div class="flap"></div>
+    <div class="letter">
+      <h2>Para Mi Amor ❤️</h2>
+      <p>
+        Feliz 5 meses, mi vida.  
+        Gracias por estar a mi lado,  
+        por cada sonrisa, cada momento  
+        y por hacer mi mundo mejor.  
+        Te amo muchísimo 💕
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function abrirCarta() {
+      document.querySelector('.envelope').classList.toggle('open');
+    }
+
+    // Generar corazones aleatorios
+    function crearCorazon() {
+      const hearts = document.querySelector('.hearts');
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (3 + Math.random() * 3) + 's'; // velocidad diferente
+      hearts.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+
+    setInterval(crearCorazon, 400);
+  </script>
+</body>
+</html>
 
