@@ -10,7 +10,7 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: pink;
+      background-color: #fce4ec;
       overflow: hidden;
       margin: 0;
     }
@@ -39,14 +39,23 @@
     }
 
     /* sobre y carta */
-    .envelope {
+    .envelope-container {
       position: relative;
       width: 350px;
       height: 250px;
+      z-index: 2;
+    }
+
+    .envelope {
+      position: relative;
+      width: 100%;
+      height: 100%;
       background: #ffcccc;
       border: 2px solid #cc9999;
       border-radius: 8px;
       cursor: pointer;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
       z-index: 2;
     }
 
@@ -60,7 +69,7 @@
       clip-path: polygon(0 0, 50% 50%, 100% 0);
       transform-origin: top;
       transition: transform 1s ease;
-      z-index: 3;
+      z-index: 4;
     }
 
     .flap::after {
@@ -73,29 +82,30 @@
       color: red;
     }
 
-    .envelope.open .flap {
-      transform: rotateX(180deg);
-      z-index: 1;
-    }
-
     .letter {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 50%;
+      left: 50%;
+      width: 90%;
+      height: 90%;
       background: white;
       padding: 20px;
       box-sizing: border-box;
       border-radius: 8px;
-      transform: translateY(0);
+      transform: translate(-50%, 110%);
       transition: transform 1s ease;
-      z-index: 2;
+      z-index: 1;
       overflow-y: auto;
     }
 
     .envelope.open .letter {
-      transform: translateY(-120%);
+      transform: translate(-50%, 0);
+      z-index: 2;
+    }
+
+    .envelope.open .flap {
+      transform: rotateX(180deg);
+      z-index: 1;
     }
 
     h2 {
@@ -118,11 +128,12 @@
     <div class="heart" style="left:90%; animation-delay: 3s;">❤</div>
   </div>
 
-  <div class="envelope" onclick="this.classList.toggle('open')">
-    <div class="flap"></div>
-    <div class="letter">
-      <h2>Para el amor de mi vida ❤️</h2>
-      <p>
+  <div class="envelope-container">
+    <div class="envelope" onclick="this.classList.toggle('open')">
+      <div class="flap"></div>
+      <div class="letter">
+        <h2>Para el amor de mi vida ❤️</h2>
+        <p>
 Felices 5 meses mi vidaaa!!  
 A veces pienso como si te conociera desde hace mucho tiempo y apenas llevamos muy poco.  
 Ha habido de todo: confianza, respeto, momentos, risas compartidas, peleas, enojos, intimidad, crecimiento, admiración,  
@@ -134,7 +145,8 @@ Me encantas.
 
 PD: Creo que se te bugeó Fortnite, correleeee, RAPIDOOOOO!!!  
 Feliz mesesarioo jiji 💕  
-      </p>
+        </p>
+      </div>
     </div>
   </div>
 </body>
