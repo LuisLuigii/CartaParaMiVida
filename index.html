@@ -1,139 +1,139 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carta para mi amor</title>
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #fce4ec;
-      overflow: hidden;
-      margin: 0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carta para mi amor</title>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fce4ec;
+    overflow: hidden;
+    margin: 0;
+  }
 
-    /* corazones de fondo */
-    .hearts {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      z-index: 0;
-      overflow: hidden;
-    }
+  /* corazones de fondo */
+  .hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
 
-    .heart {
-      position: absolute;
-      color: rgba(255, 0, 0, 0.6);
-      font-size: 24px;
-      animation: floatUp 6s linear infinite;
-    }
+  .heart {
+    position: absolute;
+    color: rgba(255, 0, 0, 0.6);
+    font-size: 24px;
+    animation: floatUp 6s linear infinite;
+  }
 
-    @keyframes floatUp {
-      0% { transform: translateY(100vh) scale(1); opacity: 1; }
-      100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
-    }
+  @keyframes floatUp {
+    0% { transform: translateY(100vh) scale(1); opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+  }
 
-    /* sobre y carta */
-    .envelope-container {
-      position: relative;
-      width: 350px;
-      height: 250px;
-      z-index: 2;
-    }
+  /* sobre y carta */
+  .envelope-container {
+    position: relative;
+    width: 350px;
+    height: 250px;
+    z-index: 2;
+  }
 
-    .envelope {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      background: #ffcccc;
-      border: 2px solid #cc9999;
-      border-radius: 8px;
-      cursor: pointer;
-      overflow: hidden;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-      z-index: 2;
-    }
+  .envelope {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #ffcccc;
+    border: 2px solid #cc9999;
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    z-index: 2;
+  }
 
-    .flap {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #ff9999;
-      clip-path: polygon(0 0, 50% 50%, 100% 0);
-      transform-origin: top;
-      transition: transform 1s ease;
-      z-index: 4;
-    }
+  .flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ff9999;
+    clip-path: polygon(0 0, 50% 50%, 100% 0);
+    transform-origin: top;
+    transition: transform 1s ease;
+    z-index: 4;
+  }
 
-    .flap::after {
-      content: "❤";
-      position: absolute;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 32px;
-      color: red;
-    }
+  .flap::after {
+    content: "❤";
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 32px;
+    color: red;
+  }
 
-    .letter {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 90%;
-      height: 90%;
-      background: white;
-      padding: 20px;
-      box-sizing: border-box;
-      border-radius: 8px;
-      transform: translate(-50%, 110%);
-      transition: transform 1s ease;
-      z-index: 1;
-      overflow-y: auto;
-    }
+  .letter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    height: 90%;
+    background: white;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    transform: translate(-50%, 70%);
+    transition: transform 1s ease;
+    z-index: 1;
+    overflow-y: auto;
+  }
 
-    .envelope.open .letter {
-      transform: translate(-50%, 0);
-      z-index: 2;
-    }
+  .envelope.open .letter {
+    transform: translate(-50%, -5%);
+    z-index: 2;
+  }
 
-    .envelope.open .flap {
-      transform: rotateX(180deg);
-      z-index: 1;
-    }
+  .envelope.open .flap {
+    transform: rotateX(180deg);
+    z-index: 1;
+  }
 
-    h2 {
-      text-align: center;
-      margin: 0 0 20px 0;
-    }
+  h2 {
+    text-align: center;
+    margin: 0 0 20px 0;
+  }
 
-    p {
-      white-space: pre-line;
-      line-height: 1.5;
-    }
-  </style>
+  p {
+    white-space: pre-line;
+    line-height: 1.5;
+  }
+</style>
 </head>
 <body>
-  <div class="hearts">
-    <div class="heart" style="left:10%; animation-delay: 0s;">❤</div>
-    <div class="heart" style="left:30%; animation-delay: 2s;">❤</div>
-    <div class="heart" style="left:50%; animation-delay: 4s;">❤</div>
-    <div class="heart" style="left:70%; animation-delay: 1s;">❤</div>
-    <div class="heart" style="left:90%; animation-delay: 3s;">❤</div>
-  </div>
+<div class="hearts">
+  <div class="heart" style="left:10%; animation-delay: 0s;">❤</div>
+  <div class="heart" style="left:30%; animation-delay: 2s;">❤</div>
+  <div class="heart" style="left:50%; animation-delay: 4s;">❤</div>
+  <div class="heart" style="left:70%; animation-delay: 1s;">❤</div>
+  <div class="heart" style="left:90%; animation-delay: 3s;">❤</div>
+</div>
 
-  <div class="envelope-container">
-    <div class="envelope" onclick="this.classList.toggle('open')">
-      <div class="flap"></div>
-      <div class="letter">
-        <h2>Para el amor de mi vida ❤️</h2>
-        <p>
+<div class="envelope-container">
+  <div class="envelope" onclick="this.classList.toggle('open')">
+    <div class="flap"></div>
+    <div class="letter">
+      <h2>Para el amor de mi vida ❤️</h2>
+      <p>
 Felices 5 meses mi vidaaa!!  
 A veces pienso como si te conociera desde hace mucho tiempo y apenas llevamos muy poco.  
 Ha habido de todo: confianza, respeto, momentos, risas compartidas, peleas, enojos, intimidad, crecimiento, admiración,  
@@ -145,9 +145,9 @@ Me encantas.
 
 PD: Creo que se te bugeó Fortnite, correleeee, RAPIDOOOOO!!!  
 Feliz mesesarioo jiji 💕  
-        </p>
-      </div>
+      </p>
     </div>
   </div>
+</div>
 </body>
 </html>
