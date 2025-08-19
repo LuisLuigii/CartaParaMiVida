@@ -15,7 +15,7 @@
     margin: 0;
   }
 
-  /* corazones de fondo */
+  /* Corazones de fondo */
   .hearts {
     position: absolute;
     width: 100%;
@@ -29,7 +29,7 @@
   .heart {
     position: absolute;
     color: rgba(255, 0, 0, 0.6);
-    font-size: 24px;
+    font-size: 30px;
     animation: floatUp 6s linear infinite;
   }
 
@@ -38,11 +38,11 @@
     100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
   }
 
-  /* sobre y carta */
+  /* Sobre y carta */
   .envelope-container {
     position: relative;
-    width: 350px;
-    height: 250px;
+    width: 450px;
+    height: 320px;
     z-index: 2;
   }
 
@@ -52,10 +52,10 @@
     height: 100%;
     background: #ffcccc;
     border: 2px solid #cc9999;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
     overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
     z-index: 2;
   }
 
@@ -75,10 +75,10 @@
   .flap::after {
     content: "❤";
     position: absolute;
-    top: 20px;
+    top: 25px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 32px;
+    font-size: 40px;
     color: red;
   }
 
@@ -86,13 +86,13 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 90%;
-    height: 90%;
+    width: 92%;
+    height: 92%;
     background: white;
-    padding: 20px;
+    padding: 25px;
     box-sizing: border-box;
-    border-radius: 8px;
-    transform: translate(-50%, 70%);
+    border-radius: 10px;
+    transform: translate(-50%, 75%);
     transition: transform 1s ease;
     z-index: 1;
     overflow-y: auto;
@@ -111,11 +111,13 @@
   h2 {
     text-align: center;
     margin: 0 0 20px 0;
+    font-size: 22px;
   }
 
   p {
     white-space: pre-line;
     line-height: 1.5;
+    font-size: 16px;
   }
 </style>
 </head>
