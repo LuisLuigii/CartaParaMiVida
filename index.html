@@ -10,129 +10,132 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background: #fce4ec;
-      font-family: 'Arial', sans-serif;
+      background-color: pink;
+      overflow: hidden;
+      margin: 0;
     }
 
+    /* corazones de fondo */
+    .hearts {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .heart {
+      position: absolute;
+      color: rgba(255, 0, 0, 0.6);
+      font-size: 24px;
+      animation: floatUp 6s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(1); opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+    }
+
+    /* sobre y carta */
     .envelope {
       position: relative;
-      width: 300px;
-      height: 200px;
-      background: #ffb6c1;
-      overflow: hidden;
+      width: 350px;
+      height: 250px;
+      background: #ffcccc;
+      border: 2px solid #cc9999;
+      border-radius: 8px;
       cursor: pointer;
-      border-radius: 5px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      z-index: 2;
     }
 
-    /* Parte superior del sobre (triángulo) */
-    .envelope::before {
-      content: "";
+    .flap {
       position: absolute;
       top: 0;
       left: 0;
-      width: 0;
-      height: 0;
-      border-left: 150px solid transparent;
-      border-right: 150px solid transparent;
-      border-bottom: 100px solid #ff9aa2;
-      z-index: 2;
-      transition: transform 1s;
+      width: 100%;
+      height: 100%;
+      background: #ff9999;
+      clip-path: polygon(0 0, 50% 50%, 100% 0);
       transform-origin: top;
-    }
-
-    /* Corazón en el medio */
-    .heart {
-      position: absolute;
-      top: 90px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 40px;
-      height: 40px;
-      background: red;
-      transform: rotate(-45deg) translateX(-50%);
+      transition: transform 1s ease;
       z-index: 3;
     }
 
-    .heart::before,
-    .heart::after {
-      content: "";
+    .flap::after {
+      content: "❤";
       position: absolute;
-      width: 40px;
-      height: 40px;
-      background: red;
-      border-radius: 50%;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 32px;
+      color: red;
     }
 
-    .heart::before {
-      top: -20px;
-      left: 0;
+    .envelope.open .flap {
+      transform: rotateX(180deg);
+      z-index: 1;
     }
 
-    .heart::after {
-      left: 20px;
-      top: 0;
-    }
-
-    /* Carta */
     .letter {
       position: absolute;
-      bottom: 0;
-      left: 10px;
-      width: 280px;
-      height: 180px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: white;
       padding: 20px;
-      text-align: center;
-      font-size: 14px;
-      border-radius: 10px;
-      transform: translateY(100%);
-      transition: transform 1s;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      box-sizing: border-box;
+      border-radius: 8px;
+      transform: translateY(0);
+      transition: transform 1s ease;
+      z-index: 2;
       overflow-y: auto;
     }
 
-    .letter h2 {
+    .envelope.open .letter {
+      transform: translateY(-120%);
+    }
+
+    h2 {
       text-align: center;
-      margin-bottom: 15px;
+      margin: 0 0 20px 0;
     }
 
-    /* Cuando se abre */
-    .open .envelope::before {
-      transform: rotateX(180deg);
-    }
-
-    .open .letter {
-      transform: translateY(0);
+    p {
+      white-space: pre-line;
+      line-height: 1.5;
     }
   </style>
 </head>
 <body>
-  <div class="envelope" id="envelope">
-    <div class="heart"></div>
+  <div class="hearts">
+    <div class="heart" style="left:10%; animation-delay: 0s;">❤</div>
+    <div class="heart" style="left:30%; animation-delay: 2s;">❤</div>
+    <div class="heart" style="left:50%; animation-delay: 4s;">❤</div>
+    <div class="heart" style="left:70%; animation-delay: 1s;">❤</div>
+    <div class="heart" style="left:90%; animation-delay: 3s;">❤</div>
+  </div>
+
+  <div class="envelope" onclick="this.classList.toggle('open')">
+    <div class="flap"></div>
     <div class="letter">
       <h2>Para el amor de mi vida ❤️</h2>
       <p>
-        Felices 5 meses mi vidaaa!!  
-        A veces pienso como si te conociera desde hace mucho tiempo y apenas llevamos muy poco.  
-        Ha habido de todo: confianza, respeto, momentos, risas compartidas, peleas, enojos, intimidad, crecimiento, admiración,  
-        pero sobre todo amor y comunicación que es lo más importante y quiero que siempre lo haya.  
-        <br><br>
-        Ya sé que esto no es mucho, pero lo hago con todo el amor y cariño que siento por ti.  
-        Te amo muchísimo y quiero seguir eligiéndote porque eres la mushasha con quien quiero compartir mi vida.  
-        Me encantas.  
-        <br><br>
-        PD: Creo que se te bugeó Fortnite, correleeee, RAPIDOOOOO!!!  
-        Feliz mesesarioo jiji 💕  
+Felices 5 meses mi vidaaa!!  
+A veces pienso como si te conociera desde hace mucho tiempo y apenas llevamos muy poco.  
+Ha habido de todo: confianza, respeto, momentos, risas compartidas, peleas, enojos, intimidad, crecimiento, admiración,  
+pero sobre todo amor y comunicación que es lo más importante y quiero que siempre lo haya.  
+
+Ya sé que esto no es mucho, pero lo hago con todo el amor y cariño que siento por ti.  
+Te amo muchísimo y quiero seguir eligiéndote porque eres la mushasha con quien quiero compartir mi vida.  
+Me encantas.  
+
+PD: Creo que se te bugeó Fortnite, correleeee, RAPIDOOOOO!!!  
+Feliz mesesarioo jiji 💕  
       </p>
     </div>
   </div>
-
-  <script>
-    const envelope = document.getElementById('envelope');
-    envelope.addEventListener('click', () => {
-      envelope.classList.toggle('open');
-    });
-  </script>
 </body>
 </html>
